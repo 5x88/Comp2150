@@ -22,23 +22,68 @@ public class A1Main
 
 			spltStr = inputString.split("\\s+");
 
-			if(spltStr[0].equalsIgnoreCase("ADD"))
+			if(spltStr[0].equalsIgnoreCase("NEW"))
+			{
+				add(students,spltStr);
+			}
+			else if(spltStr[0].equalsIgnoreCase("COURSE"))
 			{
 				
-				students.addStudent(new Student(Integer.parseInt(spltStr[1]),spltStr[2]));
+			}
+			else if(spltStr[0].equalsIgnoreCase("ADD"))
+			{
 				
 			}
-			
+			else if(spltStr[0].equalsIgnoreCase("REMOVE"))
+			{
+				
+			}
+			else if(spltStr[0].equalsIgnoreCase("TRANSCRIPT"))
+			{
+				
+			}
+			else if(spltStr[0].equalsIgnoreCase("CAPACITY"))
+			{
+				
+			}
+			else if(spltStr[0].equalsIgnoreCase("STATUS"))
+			{
+				
+			}
+			else if(spltStr[0].equalsIgnoreCase("LISTS"))
+			{
+				
+			}
+			else if(spltStr[0].equalsIgnoreCase("#"))
+			{
+				System.out.println(spltStr[1]);
+			}
+
 			System.out.println("Please enter stuff");
 			inputString = kbd.nextLine();
 		}
-		
+
 		students.print();
+		
+		System.out.println("\nDONE");
 
 
 
 
 		kbd.close();
+	}
+	
+	
+	public static void add(StudentList students, String[] split)
+	{
+		if(students.addStudent(new Student(Integer.parseInt(split[1]),split[2])))
+		{
+			System.out.println("CONFIRMED");
+		}
+		else
+		{
+			System.out.println("DUPLICATE");
+		}
 	}
 
 }
