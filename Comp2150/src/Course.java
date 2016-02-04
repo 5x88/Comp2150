@@ -7,6 +7,8 @@ public class Course {
 	int cap;
 	int studentsReg;
 	int waitlistSize;
+	StudentList students;
+	WaitList waitlist;
 	
 	
 	public Course()
@@ -16,6 +18,8 @@ public class Course {
 		this.cap = 0;
 		this.studentsReg = 0;
 		this.waitlistSize = 0;
+		this.students = new StudentList();
+		this.waitlist = new WaitList();
 		
 	}
 	
@@ -31,6 +35,8 @@ public class Course {
 		this.cap = cap;
 		this.studentsReg = 0;
 		this.waitlistSize = 0;
+		this.students = new StudentList();
+		this.waitlist = new WaitList();
 	}
 	
 	public void increaseCap(int n)

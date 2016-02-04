@@ -1,7 +1,7 @@
 
-public class Waitlist extends StudentList{
+public class WaitList extends StudentList{
 
-	public Waitlist()
+	public WaitList()
 	{
 		this.head = null;
 	}
@@ -27,4 +27,23 @@ public class Waitlist extends StudentList{
 		}
 		return result;
 	}
+	
+	public void removeStudent()
+	{
+		
+		head = head.getNext();
+		
+	}
+	
+	public Student moveToClassList()
+	{
+		Student first;
+		
+		first = head;
+		
+		head = head.getNext();
+		
+		return first;
+	}
+	
 }

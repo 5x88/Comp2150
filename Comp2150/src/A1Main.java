@@ -9,8 +9,9 @@ public class A1Main
 
 		Scanner kbd;
 		String inputString;
-		String[] spltStr;
+		String[] split;
 		StudentList students = new StudentList();
+		WaitList waitlist = new WaitList();
 
 
 		kbd = new Scanner(System.in);
@@ -20,43 +21,43 @@ public class A1Main
 		while(!(inputString.equalsIgnoreCase("Quit")))
 		{
 
-			spltStr = inputString.split("\\s+");
+			split = inputString.split("\\s+");
 
-			if(spltStr[0].equalsIgnoreCase("NEW"))
+			if(split[0].equalsIgnoreCase("NEW"))
 			{
-				add(students,spltStr);
+				add(students,split);
 			}
-			else if(spltStr[0].equalsIgnoreCase("COURSE"))
+			else if(split[0].equalsIgnoreCase("COURSE"))
 			{
 				
 			}
-			else if(spltStr[0].equalsIgnoreCase("ADD"))
+			else if(split[0].equalsIgnoreCase("ADD"))
+			{
+				waitlist.addStudent(new Student(Integer.parseInt(split[1]),split[2]));
+			}
+			else if(split[0].equalsIgnoreCase("REMOVE"))
 			{
 				
 			}
-			else if(spltStr[0].equalsIgnoreCase("REMOVE"))
+			else if(split[0].equalsIgnoreCase("TRANSCRIPT"))
 			{
 				
 			}
-			else if(spltStr[0].equalsIgnoreCase("TRANSCRIPT"))
+			else if(split[0].equalsIgnoreCase("CAPACITY"))
 			{
 				
 			}
-			else if(spltStr[0].equalsIgnoreCase("CAPACITY"))
+			else if(split[0].equalsIgnoreCase("STATUS"))
 			{
 				
 			}
-			else if(spltStr[0].equalsIgnoreCase("STATUS"))
+			else if(split[0].equalsIgnoreCase("LISTS"))
 			{
 				
 			}
-			else if(spltStr[0].equalsIgnoreCase("LISTS"))
+			else if(split[0].equalsIgnoreCase("#"))
 			{
-				
-			}
-			else if(spltStr[0].equalsIgnoreCase("#"))
-			{
-				System.out.println(spltStr[1]);
+				System.out.println(split[1]);
 			}
 
 			System.out.println("Please enter stuff");
