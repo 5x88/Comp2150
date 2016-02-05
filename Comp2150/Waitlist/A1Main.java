@@ -3,8 +3,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-import javax.swing.JFileChooser;
-
 public class A1Main
 {
 
@@ -22,12 +20,15 @@ public class A1Main
 
 			kbd = new Scanner(System.in);
 
-			FileReader f1 = new FileReader(System.getProperty("user.dir") + kbd);
-			//FileReader f1 = new FileReader("/Users/Mike/Desktop/a1_data.txt");
+			inputString = kbd.nextLine();
+			
+			System.out.println("Please enter Filename");
+			
+			FileReader f1 = new FileReader(System.getProperty("user.dir") + inputString);
 			BufferedReader br1 = new BufferedReader(f1);
 
 
-			//inputString = kbd.nextLine();
+			
 			String line = br1.readLine();
 			
 			
@@ -83,7 +84,7 @@ public class A1Main
 				}
 
 				line = br1.readLine();
-				//inputString = kbd.nextLine();
+				
 			}
 
 			System.out.println("\nDONE");
