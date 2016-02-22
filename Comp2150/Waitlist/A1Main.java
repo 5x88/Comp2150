@@ -20,11 +20,12 @@ public class A1Main
 
 			kbd = new Scanner(System.in);
 
+			System.out.println("Please enter Filename");
 			inputString = kbd.nextLine();
 			
-			System.out.println("Please enter Filename");
 			
-			FileReader f1 = new FileReader(System.getProperty("user.dir") + inputString);
+			
+			FileReader f1 = new FileReader(System.getProperty("user.dir") + "/" + inputString);
 			BufferedReader br1 = new BufferedReader(f1);
 
 
@@ -36,8 +37,6 @@ public class A1Main
 
 			while(!(line.equalsIgnoreCase("Quit")))
 			{
-
-				System.out.println("\n"+line);
 				split = line.split("\\s+");
 
 				if(split[0].equalsIgnoreCase("NEW"))
