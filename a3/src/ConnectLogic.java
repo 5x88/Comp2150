@@ -9,21 +9,29 @@ public class ConnectLogic implements ConnectController {
 	public ConnectLogic(GameDisplay gd)
 	{
 		this.gd = gd;
-
 	}
 
 	public boolean addPiece(int col) {
 
 		boolean added;
 
-		added = addPlayerToColumn(col);
+		
+			added = false;
+		
+			added = addPlayerToColumn(col);
 
-		if(added == true)
-		{
-			AIMove(col);
-			gd.updateBoard(board);
-
-		}
+			if(added == true)
+			{
+				addAIToColumn(opponent.makeMove(col));
+				gd.updateBoard(board);
+			}
+			
+			if(boardFull())
+			{
+				
+				gd.gameOver(Status.NEITHER);
+			}
+		
 
 		return added;
 	}
@@ -54,7 +62,7 @@ public class ConnectLogic implements ConnectController {
 
 		return added;
 	}
-	
+
 	private boolean addAIToColumn(int col)
 	{
 		boolean added = false;
@@ -81,33 +89,19 @@ public class ConnectLogic implements ConnectController {
 		return added;
 	}
 
-	private void AIMove(int col)
-	{
-
-		if(!boardFull())
-		{
-			gd.gameOver(Status.NEITHER);
-		}
-		else
-		{
-			addAIToColumn(opponent.makeMove(col));
-		}
-
-	}
-
 	private boolean boardFull()
 	{
-		boolean spaceRemaining = false;
+		boolean full = true;
 
 		for(int j=0;j<7;j++)
 		{
 			if(board[0][j] == Status.NEITHER)
 			{
-				spaceRemaining = true;
+				full = false;
 			}
 		}
 
-		return spaceRemaining;
+		return full;
 	}
 
 	public void reset()
@@ -124,7 +118,7 @@ public class ConnectLogic implements ConnectController {
 		}
 		else
 		{
-			opponent =new HardAI();
+			opponent = new HardAI();
 		}
 	}
 
