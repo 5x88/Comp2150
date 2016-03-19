@@ -3,10 +3,11 @@ public class EasyAI implements ConnectPlayer {
 
 	Status[][] board = new Status[6][7];
 	
+	
+	
 	public int makeMove(int lastCol) {
 		
 		addToBoard(lastCol);
-		
 		
 		int nextMove = 0 + (int)(Math.random() * 6);
 		
@@ -18,17 +19,21 @@ public class EasyAI implements ConnectPlayer {
 			add = checkBoard(nextMove);
 		}
 		
+		addToBoard(nextMove);
+		
 		
 		return  nextMove;
 	}
 
 	private void addToBoard(int col)
 	{
-		for(int i=5;i>=0;i--)
+		boolean added = false;
+		for(int i=5;i>=0&&!added;i--)
 		{
-			if(board[i][col] == Status.NEITHER)
+			if(board[i][col] != Status.ONE)
 			{
 				board[i][col] = Status.ONE;
+				added = true;
 				
 			}
 		}
@@ -38,28 +43,14 @@ public class EasyAI implements ConnectPlayer {
 	private boolean checkBoard(int col)
 	{
 		
-			boolean added = false;
+			boolean full = false;
 
-			if(board[0][col] != Status.NEITHER)
+			if(board[0][col] == Status.ONE)
 			{
-				added = false;
+				full = true;
 			}
-			else
-			{
-				boolean filled = false;
-				for(int i=5;i>=0 && !filled;i--)
-				{
-					if(board[i][col] == Status.NEITHER)
-					{
-						board[i][col] = Status.TWO;
-						added = true;
-						filled = true;
-					}
-				}
-
-			}
-
-			return added;
+			
+			return full;
 		}
 	
 	
