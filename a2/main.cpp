@@ -16,7 +16,7 @@
 
 #define FALSE 0
 #define TRUE 1
-#define EXITSUCCESS 1
+#define EXIT_SUCCESS 1
 
 /*-----------------------------------------------------------------------------
  * CONSTANTS and TYPES
@@ -43,6 +43,8 @@ void displayTerminationMessage(void);
 
 int main()
 {
+
+
 
 
 
